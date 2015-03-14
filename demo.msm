@@ -1,9 +1,0 @@
-(Fichier du déroulement de la démo)
-startDialog("MachinTruc");
-startMap("Forest","ScriptBidon");
-if (VN["bonheur"] > 10)
-	startDialog("Content");
-else
-	startDialog("Suicide");
-while (VN["notUnderstand"])
-	startDialog("Tutorial");
