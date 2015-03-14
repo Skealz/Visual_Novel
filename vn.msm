@@ -1,0 +1,71 @@
+(VisualNovel File for Melting Saga)
+[Meta]
+	$Name:"dialogue1";
+[/Meta]
+[Variables]
+	.temperature:2
+	.mapName:world.levelName
+	~fps:fps.saveFPS
+[/Variables]
+[Choices]
+	{choice1}
+		$display:"Veux-tu lancer la demo?";
+		<c1>
+			$display:"Le nom du choix";
+			$action:loadSnippet("suitechoix1.msm");
+			$requierments:temperature>2;
+		<c2>
+			$display:"L'autre choix";
+			$action:variable=2;
+	{choice2}
+		$display:"Veux-tu lancer la démo ?";
+		<c1>
+			$display:"Yep élet's go !";
+			$action:action=launch("demo.msm");
+		<c2>
+			$display:"Nope, je éveux partir";
+			$action:action=quit;
+[/Choices]
+[Images]
+	$kazuna:"\images\kazuna\kazunafinish3.png";
+	$cadre:"\images\cadres\nove.png";
+	$cadre_choices:"\images\cadres\cadre_choices.png";
+	$cadre_choices_hover:"\images\cadres\cadre_choices_hover.png";
+	$background:"\images\background\background.jpg";
+	$bob:"\images\bob\bobi.png";
+	$icokazu:"\images\icones\kazuna.png";
+	$icobobi:"\images\icones\bobi.png";
+	$kazuna_angry:"\images\kazuna\kazunafinish_angry.png";
+[/Images]
+[Actors]
+	{Kazuna}
+		$Name:"Kazuna";
+		$Icon:$icokazu;
+		$Behaviour:["idle":$kazuna,"angry":$kazuna_angry];
+		$Position:(0,20);
+		$Font:"Arial";
+		$Color:(255,255,255);
+
+	{Bob}
+		$Name:"Bob";
+		$Icon:$icobobi;
+		$Behaviour:["idle":$bob];
+		$Position:(1100,247);
+		$Font:"Arial";
+		$Color:(255,255,255);
+[/Actors]
+[Dialogue]
+	Scene.visible({Kazuna});
+	Scene.visible({Bob});
+	{Kazuna}.say("Salut");
+	{Bob}.say("Ok");
+	{Bob}.move(1300, 247);
+	{Kazuna}.set_behaviour("angry");
+	{Kazuna}.say("Phrase de test pour savoir saut de ligne");
+	{Kazuna}.set_behaviour("idle");
+	{Kazuna}.say("hahahahaha hhaaahhohohohohooh   ok");
+	{Kazuna}.think("Ceci est une pensée");
+	{Kazuna}.free();
+	{Bob}.choice("{choice2}");
+	{Bob}.say("znjjjjjjjjjjjjjjjjjjjjjjj dazqsdxzqsdxzqs daxqsdxqsrfdcze");
+[/Dialogue]
